@@ -1,25 +1,3 @@
-bindkey -v
-
-# Scripts PATH
-export PATH=/opt/homebrew/bin:$PATH
-export PATH="/Users/nuko/scripts:$PATH"
-export PATH="/opt/homebrew/opt/qt/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/qt/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/qt/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/qt/lib/pkgconfig"
-export PATH=/usr/local/anaconda3/bin:$PATH
-export PATH=/opt/homebrew/anaconda3/bin:$PATH
-export PATH=$PATH:/Users/nuko/.spicetify
-export ZSH="/Users/nuko/.oh-my-zsh"
-
-# Path to your oh-my-zsh installation.
-source $ZSH/oh-my-zsh.sh
-ZSH_THEME="powerlevel10k/powerlevel10k"
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
 #### Plugins
 plugins=(
   git
@@ -53,7 +31,3 @@ function acp() {
   git commit -m "$1"
   git push
 }
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
