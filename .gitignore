@@ -4,6 +4,8 @@
 *
 
 !/.gitignore
+!/README.md
+!/.zshrc
 
 !/alacritty/
 !/alacritty/**
