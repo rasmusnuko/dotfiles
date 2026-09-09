@@ -40,9 +40,10 @@ o.bind("SUPER + w", nil, "firefox")
 -- Close on SUPER+q
 o.bind("SUPER + q", "Close window", hl.dsp.window.close())
 
--- Move keybindings overview from SUPER+K to SUPER+SHIFT+K
+-- Move keybindings overview from SUPER+K to SUPER+CTRL+SHIFT+K
+-- (SUPER+SHIFT+K is used below for vim-style "swap window up")
 hl.unbind("SUPER + K")
-o.bind("SUPER + SHIFT + K", "Keybindings", "omarchy-menu-keybindings")
+o.bind("SUPER + CTRL + SHIFT + K", "Keybindings", "omarchy-menu-keybindings")
 
 -- Free up SUPER+J and SUPER+L for vim-style window navigation below
 -- (was: Toggle window split / Toggle workspace layout)
@@ -63,6 +64,12 @@ o.bind("SUPER + H", "Focus on left window (vim)", hl.dsp.focus({ direction = "l"
 o.bind("SUPER + J", "Focus on below window (vim)", hl.dsp.focus({ direction = "d" }))
 o.bind("SUPER + K", "Focus on above window (vim)", hl.dsp.focus({ direction = "u" }))
 o.bind("SUPER + L", "Focus on right window (vim)", hl.dsp.focus({ direction = "r" }))
+
+-- Vim-style (hjkl) window movement, mirroring the default SUPER+SHIFT+arrows
+o.bind("SUPER + SHIFT + H", "Swap window to the left (vim)", hl.dsp.window.swap({ direction = "l" }))
+o.bind("SUPER + SHIFT + J", "Swap window down (vim)", hl.dsp.window.swap({ direction = "d" }))
+o.bind("SUPER + SHIFT + K", "Swap window up (vim)", hl.dsp.window.swap({ direction = "u" }))
+o.bind("SUPER + SHIFT + L", "Swap window to the right (vim)", hl.dsp.window.swap({ direction = "r" }))
 
 -- NOTE: hyprland.lua swaps SUPER<->ALT for every bind registered after it, so
 -- from here on writing "ALT" in a keys string is what lands on the physical
