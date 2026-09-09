@@ -15,7 +15,13 @@ ignored by default via `.gitignore`, which allowlists specific paths:
   `wireplumber`, `fcitx5`, `gtk-3.0`, `mimeapps.list`, `chromium-flags.conf`
 - **Editor**: `nvim` (current LazyVim config)
 - **Tools**: `git`, `lazygit`, `mise`, `btop`, `herdr`, `voxtype`,
-  `opencode`, `obsidian`, `imv`, `xournalpp`
+  `opencode`, `obsidian`, `imv`, `xournalpp`, `pi`
+
+`pi` (the `pi` CLI coding assistant) actually stores its settings at
+`~/.pi/agent/settings.json`, outside `~/.config`. `~/.pi/agent/settings.json`
+is a symlink into `pi/settings.json` here so it's tracked like everything
+else; `~/.pi/agent/auth.json` (credentials) is deliberately left alone and
+never touched by this repo.
 
 `nvim-old/` is a previous packer-based nvim config, kept for reference
 but no longer in use — see `nvim/` for the active config.
