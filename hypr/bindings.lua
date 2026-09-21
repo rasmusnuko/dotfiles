@@ -90,7 +90,7 @@ end
 o.bind("ALT + H", "Left arrow (Windows+H)", send_key_once("LEFT"))
 o.bind("ALT + J", "Down arrow (Windows+J)", send_key_once("DOWN"))
 o.bind("ALT + K", "Up arrow (Windows+K)", send_key_once("UP"))
-o.bind("ALT + L", "Left arrow (Windows+L)", send_key_once("LEFT"))
+o.bind("ALT + L", "Left arrow (Windows+L)", send_key_once("RIGHT"))
 
 -- Windows key + Shift + S: drag-to-select screenshot (region mode, like
 -- Windows' own Win+Shift+S). Saves to file, copies to clipboard, and offers
@@ -103,3 +103,15 @@ o.bind("ALT + SHIFT + L", "Lock screen (Windows+Shift+L)", "omarchy-system-lock"
 -- Windows key + V: clipboard history (Omarchy's built-in clipboard manager,
 -- already bound to CTRL+ALT+V by default -- this just adds Windows+V too).
 o.bind("ALT + V", "Clipboard manager (Windows+V)", "omarchy-shell shell toggle omarchy.clipboard")
+
+-- Shrink the "a lot" window resize step on SUPER+CTRL+MINUS/PLUS (and the
+-- SHIFT variants for up/down) from the default 300px down to 50px.
+hl.unbind("SUPER + CTRL + code:20")
+hl.unbind("SUPER + CTRL + code:21")
+hl.unbind("SUPER + CTRL + SHIFT + code:20")
+hl.unbind("SUPER + CTRL + SHIFT + code:21")
+
+o.bind("SUPER + CTRL + code:20", "Expand window left a lot", hl.dsp.window.resize({ x = -50, y = 0, relative = true }))
+o.bind("SUPER + CTRL + code:21", "Shrink window left a lot", hl.dsp.window.resize({ x = 50, y = 0, relative = true }))
+o.bind("SUPER + CTRL + SHIFT + code:20", "Shrink window up a lot", hl.dsp.window.resize({ x = 0, y = -50, relative = true }))
+o.bind("SUPER + CTRL + SHIFT + code:21", "Expand window down a lot", hl.dsp.window.resize({ x = 0, y = 50, relative = true }))
